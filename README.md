@@ -1,13 +1,6 @@
 # lncMachine
 lncMachine (2021): Machine learning tool for genome-wide lncRNA discovery and annotation
 
-## ⚠️ Maintenance Status
-This repository reflects the state of **lncMachine** at the time of its original publication (2021).
-It is provided to support reproducibility of the published work and remains functional, but is not under active development.
-
-Users interested in reproducing the results should refer to the publication for model design, training strategy, and evaluation.
-
-
 ## Key Highlights
 - ML tool for genome-wide lncRNA discovery and annotation
 - Supports supervised model training and prediction using multiple classifiers
