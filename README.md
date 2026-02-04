@@ -1,72 +1,51 @@
-# lncMachine
-lncMachine (2021): Machine learning tool for genome-wide lncRNA discovery and annotation
+# lncMachine (2021): Machine learning tool for genome-wide lncRNA discovery and annotation
+[![DOI](https://img.shields.io/badge/DOI-10.1007%2Fs10142--021--00769--w-blue)](https://doi.org/10.1007/s10142-021-00769-w)
+![Python](https://img.shields.io/badge/Python-3+-yellow)
 
-## Key Highlights
-- ML tool for genome-wide lncRNA discovery and annotation
-- Supports supervised model training and prediction using multiple classifiers
-- Published and benchmarked in [Functional & Integrative Genomics (2021)](https://link.springer.com/article/10.1007/s10142-021-00769-w?_lrsc=46a0ab3f-f584-4075-9711-b582de4af086)
-- Provides reference code supporting the methodology described in the paper
+> **📄 Publication:** lncMAchine: A machine learning-based approach for genome-wide identification of long noncoding RNAs — [Functional & Integrative Genomics, 2021](https://doi.org/10.1007/s10142-021-00769-w)<br/>
+> **👤 Role:** First author and primary developer — implemented ML pipeline and prediction framework<br/>
+> **🎯 Impact:** Enables supervised genome-wide lncRNA discovery and annotation with multiple classifiers<br/>
+> **Tech:** Python 3 • scikit-learn • BioPython • NumPy • pandas
+
 
 ## Overview
-lncMachine is designed for genome-wide identification and annotation of lncRNAs using supervised machine learning. It supports model training from user-provided coding and noncoding datasets and includes the code used to generate prediction models evaluated in the publication.
+lncMachine is designed for genome-wide identification and annotation of lncRNAs using supervised machine learning. Users can train models from coding and noncoding sequences and apply prebuilt models for prediction. lncMachine supports multiple classifiers and ensures reproducibility with reference code matching the publication.
 
-Prediction models were constructed using the sklearn module (version 0.22). Prebuilt models are provided and should be used with the same sklearn version for compatibility.
+**Use cases:** lncRNA annotation in new genomes • Comparative genomics • Model evaluation and classifier benchmarking
 
 
 ## Requirements
 - Python 3 or newer
 - scikit-learn version 0.22
-
-**Required Python packages:**
-- Bio
-- optparse
-- numpy
+- BioPython
+- Numpy
 - pandas
-- sklearn
-- pickle
 
 
-## Program Usage
-
+## Installation
+Clone the repository and ensure dependencies are installed:
 ```
-Options:
---version             show program's version number and exit  
--h, --help            show this help message and exit
--c CODING_FILE, --cod=CODING_FILE
-		      Coding sequences in fasta format
--n NONCODING_FILE, --noncod=NONCODING_FILE
-		      Noncoding sequences in fasta format. Required for
-			  training.
---train               Train using coding and noncoding datasets
-		      [default:RandomForestClassifier(random_state=1,
-		      n_jobs=-1)]. Both -n and -c required.
---all                 Build models for all nine algorithms.
---model=PREDICTION_MODEL
-		      Prediction model in .sav format [optional]
---algorithm=ALGORITHM
-		      Use specified machine learning prediction algorithm
-		      i.e. RandomForestClassifier(random_state=1, n_jobs=-1)
--i ICSV               Tab separated CSV file containing class and feature
-		      information [optional]
--o OUTPUT_FILE, --out=OUTPUT_FILE
-		      Output file name for classification (1 for coding and
-		      0 for noncoding) and the features
-		      [default:'features.csv'].
+git clone https://github.com/hbusra/lncMAchine.git
+cd lncMAchine
+pip install -r requirements.txt
 ```
 
-## Example Workflows
+**Note:** Prebuilt models require scikit-learn 0.22 for compatibility.
 
-**Build a Random Forest prediction model from coding and noncoding FASTA files:**
+
+## Example Usage
+
+**Train a Random Forest prediction model from coding and noncoding FASTA files:**
 ```
 python3 lncMachine.py -c coding.fasta -n noncoding.fasta --train 
 ```
 
-**Build prediction models using nine ML algorithms:**
+**Train prediction models with nine ML algorithms:**
 ```
 python3 lncMachine.py -c coding.fasta -n noncoding.fasta --train --all
 ```
 
-**Train a Random Forest model from a CSV file containing at least two classes:**
+**Train from a CSV feature file:**
 ```
 python3 lncMachine.py -i features.csv --train
 ```
