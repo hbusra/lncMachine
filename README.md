@@ -1,16 +1,24 @@
 # lncMachine
-lncMachine (2021): Machine learning–based pipeline for genome-wide lncRNA discovery and annotation
+lncMachine (2021): Machine learning tool for genome-wide lncRNA discovery and annotation
+
+## ⚠️ Maintenance Status
+This repository reflects the state of **lncMachine** at the time of its original publication (2021).
+It is provided to support reproducibility of the published work and remains functional, but is not under active development.
+
+Users interested in reproducing the results should refer to the publication for model design, training strategy, and evaluation.
+
 
 ## Key Highlights
-- ML–based pipeline for genome-wide lncRNA discovery and annotation
+- ML tool for genome-wide lncRNA discovery and annotation
 - Supports supervised model training and prediction using multiple classifiers
 - Published and benchmarked in [Functional & Integrative Genomics (2021)](https://link.springer.com/article/10.1007/s10142-021-00769-w?_lrsc=46a0ab3f-f584-4075-9711-b582de4af086)
-- Designed for reproducible, large-scale transcriptomic annotation workflows
+- Provides reference code supporting the methodology described in the paper
 
 ## Overview
-lncMachine is designed for genome-wide identification and annotation of lncRNAs using supervised machine learning. It supports model training from user-provided coding and noncoding datasets as well as prediction using prebuilt models.
+lncMachine is designed for genome-wide identification and annotation of lncRNAs using supervised machine learning. It supports model training from user-provided coding and noncoding datasets and includes the code used to generate prediction models evaluated in the publication.
 
 Prediction models were constructed using the sklearn module (version 0.22). Prebuilt models are provided and should be used with the same sklearn version for compatibility.
+
 
 ## Requirements
 - Python 3 or newer
@@ -72,7 +80,7 @@ python3 lncMachine.py -i features.csv --train
 
 **Predict coding probability from a FASTA file using a prebuilt model:**
 ```
-python3 lncMachine.py -c coding.fasta --model prebuilt_model.sav
+python3 lncMachine.py -c test.fasta --model prebuilt_model.sav -o test_predictions.csv
 ```
 
 ## Citation
