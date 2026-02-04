@@ -118,9 +118,9 @@ def coding_prediction(dataFrame, prediction_model, output_file):
 	clf = pickle.load(open(prediction_model, 'rb'))
 	y_pred=clf.predict(X_test)
 	
-	print("%20s | Accuracy: %0.2f%% |  " % (prediction_model, 100*clf.score(X_test,y_test)))
-	print(confusion_matrix(y_test, y_pred))
-	print(classification_report(y_test,y_pred))
+#	print("%20s | Accuracy: %0.2f%% |  " % (prediction_model, 100*clf.score(X_test,y_test)))
+#	print(confusion_matrix(y_test, y_pred))
+#	print(classification_report(y_test,y_pred))
 #	print(roc_auc_score(y_test,y_pred))
 	dataFrame["class"]=y_pred
 	y_proba=clf.predict_proba(X_test)[:, 1]
